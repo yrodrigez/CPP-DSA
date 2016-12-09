@@ -7,7 +7,10 @@
 	 ~Node();
 	 T const getValue();
 	 void setValue(T  const&);
+	 void setNext(Node const&);
+	 Node getNext();
 
  private:
 	 T value;
+	 Node<T> next;
  };

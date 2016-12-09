@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "node.h"
-#include <iostream>
 
 	template <class T>
 	Node<T> :: Node(T const& value) {
@@ -8,8 +7,8 @@
 	}
 
 	template <class T>
-	Node<T> :: ~Node() {
-		std::cout << "Jose es marico y destruye cosas";
+	Node<T>::~Node() {
+		~T();
 	}
 
 
@@ -19,6 +18,19 @@
 	}
 
 	template <class T>
-	void Node<T> :: setValue(T const& value) {
+	void Node<T>::setValue(T const& value) 
+	{
 		this->value = value
+	}
+
+	template<class T>
+	void Node<T>::setNext(Node const & next)
+	{
+		this->next = next;
+	}
+
+	template<class T>
+	Node Node<T>::getNext()
+	{
+		return this->next;
 	}
