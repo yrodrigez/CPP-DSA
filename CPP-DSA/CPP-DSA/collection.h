@@ -7,6 +7,8 @@ class Collection
 {
 public:
 
+	Collection();
+
 	/* Ensures that this collection contains the specified element (optional operation). 
 	 * Returns true if this collection changed as a result of the call.
 	 * Collections that support this operation may place limitations on what elements may be added to this collection. 
@@ -16,6 +18,8 @@ public:
 	 * This preserves the invariant that a collection always contains the specified element after this call returns.
 	 */
 	bool add(T const&);
+
+	T get(int const&);
 
 	/* Adds all of the elements in the specified collection to this collection (optional operation). 
 	 * The behavior of this operation is undefined if the specified collection is modified while the operation is in progress. 
@@ -49,10 +53,11 @@ public:
 	bool isEmpty() const;
 
 	/* Returns the number of elements in this collection. If this collection contains more than Integer.MAX_VALUE elements, returns Integer.MAX_VALUE. */
-	int  size() const;
+	int  getSize() const;
 
 
 private:
-	Node<T> node;
-	int     size;
+	Node<T> *root;
+	Node<T> *next;
+	int size;
 };

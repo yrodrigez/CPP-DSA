@@ -5,33 +5,28 @@
 #include <iostream>
 #include <string>
 #include "node.cpp"
+#include "collection.cpp"
+#include <stdexcept>
 
 using namespace std;
 
 int main()
 {
-	int* numC = new int(1);
-
-	string * pointer = new string("algo dentro");
-
-	Node<int*> nodoCambiante(numC);
-
-	Node<string*> nodostring(pointer);
-	
-	(*numC)++;
-
-	cout << (*nodostring.getValue()) << "\n";
-
-	//delete pointer;
-
-	*pointer = *new string("otra cosa");
-
-	cout << *nodostring.getValue() << "\n" << *pointer << "\n";
-
-	
-	cout << (*numC) << " cambiante: " << (*nodoCambiante.getValue()) << "\n";
+	try {
+		Collection<int> collection = Collection<int>();
+		collection.add(1);
+		collection.add(2);
+		collection.add(3);
+		collection.add(4);
+		collection.add(5);
+		cout << collection.get(0);
+	}
+	catch (invalid_argument ex) {
+		cout << ex.what();
+	}
 
 	system("pause");
+	
 	
 	return 0;
 }
