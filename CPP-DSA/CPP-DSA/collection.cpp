@@ -48,7 +48,9 @@
 	* (This implies that the behavior of this call is undefined if the specified collection is this collection, and this collection is nonempty.)
 	*/
 	template <class T>
-	bool Collection<T>::addAll(Collection<T> const&) {
+	bool Collection<T>::addAll(Collection<T> const& collection) {
+		int max = collection.getSize();
+		for (int i = 0; i < max ; i++) this->add( collection.get(i) );
 		return true;
 	}
 
